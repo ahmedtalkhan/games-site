@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Details</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div id="game-details" class="container">
+      <h1 class="text-center">Game Details</h1>
+      <div id="game-details-container" class="w-50 d-flex justify-content-center align-items-center flex-column m-auto">
+        <script>
+          const game = JSON.parse(sessionStorage.getItem("selectedGame"));
+
+          if (game) {
+            console.log(game);
+            document.getElementById("game-details-container").innerHTML = `
+            <h2>${game.title}</h2>
+            <img src="${game.thumbnail}" alt="${game.title} thumbnail class="d-flex">
+            <p>${game.short_description}</p>
+            <p>${game.genre}</p>
+            <a href="${game.game_url}" target="_blank">Play ${game.title}</a>
+          `;
+          console.log(game);
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
